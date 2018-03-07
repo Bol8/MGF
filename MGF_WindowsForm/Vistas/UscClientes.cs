@@ -9,20 +9,22 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataGridViewUtilities.Manage;
 using Dominio.Entidades;
+using MGF_WindowsForm.Interfaces;
 using MGF_WindowsForm.Modelos.Clientes;
 
 namespace MGF_WindowsForm.Vistas
 {
-    public sealed partial class UscClientes : UserControl
+    public sealed partial class UscClientes<TEntity, TModel> : UserControl, IUscPrincipal<TEntity,TModel> where TModel : new()
     {
-        private readonly DataGridViewControlador<mCliente, Cliente> _dtgClienteControlador;
+        private readonly DataGridViewControlador<TModel, TEntity> _dtgClienteControlador;
 
         public UscClientes()
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
 
-            _dtgClienteControlador = new DataGridViewControlador<mCliente, Cliente>(dtgCliente);
+            _dtgClienteControlador = new DataGridViewControlador<TModel, TEntity>(dtgCliente);
+            
         }
 
 
@@ -41,5 +43,19 @@ namespace MGF_WindowsForm.Vistas
         #endregion
 
 
+        public TModel ObtenerElemento()
+        {
+          return _dtgClienteControlador.ObtenerElemento();
+        }
+
+        public void CargarElementos(IEnumerable<TEntity> elementos)
+        {
+            _dtgClienteControlador.CargarDatos(elementos);
+        }
+
+        public void Actualizar()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

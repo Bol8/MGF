@@ -1,6 +1,6 @@
 ﻿namespace MGF_WindowsForm.Vistas
 {
-    sealed partial class UscClientes
+    sealed partial class UscClientes<TEntity,TModel> where TModel : new()
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -139,5 +139,6 @@
         private System.Windows.Forms.Label lblTituloCli;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView dtgCliente;
+       
     }
 }
