@@ -25,6 +25,7 @@ namespace MGF_WindowsForm.Gestion.Inyectores
 
            
 
+
             _container.Register<IGenericRepository<Cliente>, GenericRepository<Cliente>>(Lifestyle.Scoped);
             _container.Register<IClienteRepositorio, ClienteRepositorio>(Lifestyle.Scoped);
 
