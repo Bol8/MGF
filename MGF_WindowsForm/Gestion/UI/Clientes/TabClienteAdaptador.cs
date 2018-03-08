@@ -13,7 +13,6 @@ namespace MGF_WindowsForm.Gestion.UI.Clientes
             _uscPrincipal = uscPrincipal;
         }
 
-
         public void BtnNuevo_Click(object sender, EventArgs e)
         {
             var frm = new FrmCliente();
